@@ -1,0 +1,51 @@
+body, html {
+    font-size: 0;
+}
+
+body > div {
+    width: 150px;
+    background-color: #ccc;
+}
+
+div div {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    color: white;
+    padding: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+div div:active {
+    border: 2px solid red;
+}
+
+div div:nth-child(odd) {
+    background-color: #666;
+}
+
+div div:nth-child(even) {
+    background-color: #999;
+}
+
+div div[data-count='10']:after {
+    content: '10'
+}
+
+div div[data-count='5']:after {
+    content: '5'
+}
+
+div div[data-count='13']:after {
+    content: '13'
+}
+
+div div[data-count='11']:after {
+    content: '11'
+}
+
+div div[data-count='17']:after {
+    content: '17'
+}

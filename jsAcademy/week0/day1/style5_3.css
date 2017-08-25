@@ -1,0 +1,29 @@
+div div {
+    width: 120px;
+    height: 50px;
+    background-color: #666;
+    border-bottom: 10px solid white;
+    color: white;
+    padding: 5px;
+}
+
+div div[data-count='10']:after {
+    content: '10'
+}
+
+div div[data-count='5']:after {
+    content: '5'
+}
+
+div div[data-count='13']:after {
+    content: '13'
+}
+
+div div[data-count='11']:after {
+    content: '11'
+}
+
+div div[data-count='17']:after {
+    content: '17'
+}
+

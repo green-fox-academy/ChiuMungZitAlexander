@@ -1,0 +1,13 @@
+div div {
+    width: 120px;
+    height: 50px;
+    background-color: #999;
+}
+
+div div:first-child {
+    background-color: #666;
+}
+
+div div:last-child {
+    background-color: #ccc;
+}

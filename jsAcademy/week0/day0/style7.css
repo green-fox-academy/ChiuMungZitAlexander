@@ -2,7 +2,7 @@
     width: 250px;
 }
 
-.container, .b329 {
+div {
     font-weight: bold;
 }
 
@@ -15,5 +15,5 @@
 }
 
 p {
-    background: yellow;
+    background-color: yellow;
 }
