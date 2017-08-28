@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 600px;
+    height: 80px;
+    background: aqua;
+    margin: auto;
+}
+
+.main {
+    height: 500px;
+    width: 600px;
+    margin: auto;
+    position: relative;
+}
+
+.sideBarL {
+    height: 500px;
+    width: 150px;
+    background: orange;
+    position: absolute;
+    left: 0;
+}
+
+.sideBarR {
+    height: 500px;
+    width: 150px;
+    background: purple;
+    position: absolute;
+    right: 0;
+}
+
+main {
+    height: 500px;
+    width: 250px;
+    background: red;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+main div {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: black;
+    bottom: 20px;
+    right: 20px;
+}
+
+footer {
+    width: 600px;
+    height: 80px;
+    background: blue;
+    margin: auto;
+}
