@@ -49,6 +49,10 @@ a:link {
     color: blue;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
 a.inactive {
     color: #707070;
     background-image: linear-gradient(transparent, transparent), url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09width%3D%2212px%22%20height%3D%2213.836px%22%20viewBox%3D%220%200%2012%2013.836%22%20enable-background%3D%22new%200%200%2012%2013.836%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cpath%20fill%3D%22%23777777%22%20d%3D%22M1.938%2C6.656c-1.32%2C1.485-1.47%2C3.15-0.97%2C4.25c0.323%2C0.707%2C0.78%2C1.127%2C1.313%2C1.375%0A%09c0.496%2C0.229%2C1.074%2C0.273%2C1.658%2C0.282c0.023%2C0%2C0.04%2C0.03%2C0.062%2C0.03h4.187c0.61%2C0%2C1.225-0.125%2C1.75-0.405%0A%09c0.527-0.28%2C0.961-0.718%2C1.188-1.376c0.335-0.964%2C0.175-2.529-1.094-4.03C9.094%2C7.954%2C7.68%2C8.719%2C6.065%2C8.719%0A%09c-1.677%2C0-3.182-0.812-4.125-2.063H1.938z%22%2F%3E%0A%3Cpath%20fill%3D%22%23777777%22%20d%3D%22M6.063%2C0c-1.89%2C0-3.595%2C1.674-3.594%2C3.563C2.467%2C5.45%2C4.173%2C7.155%2C6.06%2C7.155%0A%09c1.89%2C0%2C3.564-1.705%2C3.563-3.593C9.625%2C1.673%2C7.95%2C0%2C6.063%2C0L6.063%2C0z%22%2F%3E%0A%3C%2Fsvg%3E%0A);
@@ -144,14 +148,15 @@ aside hr {
 }
 
 .fr .glass {
-    height: 1em;
-    width: 1em;
+    height: 1.5em;
+    width: 1.5em;
     position: absolute;
-    right: 2em;
+    right: 1.1em;
     top: 1em;
     display: inline-block;
     background-image: linear-gradient(transparent, transparent), url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2213%22%3E%3Cg%20stroke-width%3D%222%22%20stroke%3D%22%236c6c6c%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M11.29%2011.71l-4-4%22%2F%3E%3Ccircle%20cx%3D%225%22%20cy%3D%225%22%20r%3D%224%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E);
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .content {
@@ -163,12 +168,31 @@ aside hr {
     font-size: 1.2em;
 }
 
+.content p {
+    line-height: 1.6em;
+    margin: 0.5em 0;
+}
+
 .content p.name {
     font-size: 2.5em;
     font-family: 'Times New Roman', Times, serif;
+    margin: 0;
 }
 
 .content p.disam {
     margin: 1.5em 2em 1em;
     font-style: italic;
+}
+
+.content .personDetail {
+    float: right;
+    width: 20em;
+    height: 2em;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #aaa;
+}
+
+.content .personDetail .person {
+    text-align: left;
 }
