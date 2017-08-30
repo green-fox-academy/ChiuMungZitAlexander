@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+header {
+    height: 50px;
+    width: 600px;
+    background: #262626;
+}
+
+header nav {
+    line-height: 50px;
+    color: white;
+}
+
+header nav span {
+    margin: 0 15px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+main {
+    height: 420px;
+    width: 520px;
+    background: #F05408;
+    padding: 20px 40px;
+    text-align: center;
+}
+
+.countrySet {
+    margin: 20px 0;
+}
+
+.country {
+    display: inline-block;
+    line-height: 40px;
+    height: 40px;
+    background: yellow;
+    padding: 0 15px;
+    margin: 0 5px;
+}
+
+.ta_l {
+    text-align: left;
+}

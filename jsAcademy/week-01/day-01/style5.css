@@ -1,0 +1,24 @@
+h1 {
+    color: #0300F7;
+}
+
+h2 {
+    color: #FFA411;
+}
+
+.root {
+    color: #0000F1;
+    list-style-type: square;
+}
+
+.branch {
+    color: black;
+}
+
+.branch .tip {
+    color: #FF9B84;
+}
+
+.dot {
+    list-style-type: disc;
+}

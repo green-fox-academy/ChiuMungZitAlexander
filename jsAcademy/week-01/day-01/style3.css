@@ -1,0 +1,25 @@
+.container {
+    width: 300px;
+    height: 250px;
+    background: #4285F4;
+    margin: 10px 0;
+    padding: 15px;
+}
+
+.container div {
+    height: 50%;
+    line-height: 125px;
+    text-align: center;
+    font-size: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.north {
+    background: #E67676;
+}
+
+.south {
+    background: #A9E6E6;
+}
+
