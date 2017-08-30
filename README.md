@@ -1,14 +1,15 @@
 # ChiuMungZitAlexander
 
-## WEEK0
-### DAY0/Aug.24th
+## WEEK-01
+### DAY-01/Aug.24th
 basic HTML
-### DAY1/Aug.25th
+### DAY-02/Aug.25th
 advanced CSS
 
-## WEEK1
-### DAY0/Aug.28th
+## WEEK-02
+### DAY-01/Aug.28th
 "wikipedia" design
-### DAY1/Aug.29th
+### DAY-02/Aug.29th
 git & npm commands
-
+### DAY-03/Aug.30th
+javascript syntax
