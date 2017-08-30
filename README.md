@@ -11,5 +11,5 @@ advanced CSS
 "wikipedia" design
 ### DAY-02/Aug.29th
 git & npm commands
-### DAY-03/AUG.30TH
+### DAY-03/Aug.30th
 javascript syntax
