@@ -13,7 +13,11 @@ var lineCount = 4
 // The triangle should have as many lines as lineCount is
 while (lineCount) {
     var n = 5 - lineCount
+    var str = ""
     while (n) {
-        
+          str += "*"
+          n--
     }
+    lineCount--
+    console.log(str)
 }
