@@ -1,7 +1,8 @@
 var button = document.querySelector("button");
+var div = document.querySelector("div");
 
 button.addEventListener("click", turn, false);
 
 function turn() {
-    !button.className ? button.className = "party" : button.className = "";
+    !div.className ? div.className = "party" : div.className = "";
 }

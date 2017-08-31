@@ -1,9 +1,8 @@
-var domArray = document.getElementsByTagName("h1");
-
+(function(){var domArray = document.querySelectorAll("h1");
 for (let item of domArray) {
-    item.innerHTML = "Green Fox Academy Conquers the World.";
-}
+    item.innerHTML = "Green Fox Academy Conquers the World."; 
+}})()
 
-var js = "javascript:var domArray=document.getElementsByTagName('h1');for(let item of domArray){item.innerHTML='Green Fox Academy Conquers the World.';}";
+var js = "(function(){var domArray = document.querySelectorAll('h1');for (let item of domArray) {item.innerHTML = 'Green Fox Academy Conquers the World.';}})()";
 
-document.querySelector("a").href = "window.external.addFavorite(js, title)";
+document.querySelector("a").href = "javascript:" + js;
