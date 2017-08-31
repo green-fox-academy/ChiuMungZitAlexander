@@ -13,3 +13,5 @@ advanced CSS
 git & npm commands
 ### DAY-03/Aug.30th
 javascript syntax
+### DAY-04/Aug.31st
+javascript dom operation
