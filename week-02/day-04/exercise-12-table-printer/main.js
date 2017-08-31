@@ -25,5 +25,32 @@ var ingredients = [
 ];
 
 function print() {
-    var len = 0; // LENGTH OF FIRST COLUMN
+	// CONFIRM THE FIRST COLUMN LENGTH
+	var len = 12;
+	var ing = []
+	ingredients.forEach(function(obj) {
+		for (let key in obj) {
+			key.length >= len ? len = key.length : "";
+			ing.push(key);
+			obj[key] === 0 ? obj[key] = "-" : "";
+			break;
+		}
+	}, this);
+	len += 2;
+
+	// PRINT
+	var str = "+" + "-".repeat(len) + "+" + "-".repeat(15) + "+" + "-".repeat(10) + "+";
+	console.log(str);
+	console.log("| Ingredient " + " ".repeat(len - 12) + "| Needs cooling | In stock |");
+	console.log(str);
+	ingredients.forEach(function(obj, index, array) {
+		if (obj.needs_cooling) {
+			console.log("| " + ing[index] + " ".repeat(18 - ing[index].length) + " | " + "Yes" + " ".repeat(11) + "| " + obj[ing[index]] + " ".repeat(9 - String(obj[ing[index]]).length) + "|");
+		} else {
+			console.log("| " + ing[index] + " ".repeat(18 - ing[index].length) + " | " + "NO" + " ".repeat(12) + "| " + String(obj[ing[index]]) + " ".repeat(9 - String(obj[ing[index]]).length) + "|");
+		}
+	}, this);
+	console.log(str);
 }
+
+print();
