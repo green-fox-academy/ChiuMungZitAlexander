@@ -19,32 +19,16 @@ var lineCount = 7
 // The diamond should have as many lines as lineCount is
 
 if (!(lineCount % 2)) {
-    var arr = new Array(lineCount - 1)
-    arr.fill(" ")
-    arr[lineCount / 2 - 1] = "*"
-    for (let i = 0; i <= lineCount / 2 - 1; i++) {
-        arr[lineCount / 2 - 1 + i] = "*"
-        arr[lineCount / 2 - 1 - i] = "*"
-        console.log(arr.join(""))
+    var i = lineCount / 2
+    while (i--) {
+        console.log(" ".repeat(i) + "*".repeat(lineCount - 2 * i - 1) + " ".repeat(i))
     }
-    console.log(arr.join(""))
-    for (let i = 0; i < lineCount / 2 - 1; i++) {
-        arr[i] = " "
-        arr[lineCount - 2 - i] = " "
-        console.log(arr.join(""))
+    while (i++ < (lineCount / 2 - 1)) {
+        console.log(" ".repeat(i) + "*".repeat(lineCount - 2 * i - 1) + " ".repeat(i))
     }
 } else {
-    var arr = new Array(lineCount++)
-    arr.fill(" ")
-    arr[lineCount / 2 - 1] = "*"
-    for (let i = 0; i <= lineCount / 2 - 1; i++) {
-        arr[lineCount / 2 - 1 + i] = "*"
-        arr[lineCount / 2 - 1 - i] = "*"
-        console.log(arr.join(""))
-    }
-    for (let i = 0; i < lineCount / 2 - 1; i++) {
-        arr[i] = " "
-        arr[lineCount - 2 - i] = " "
-        console.log(arr.join(""))
+    var i = (lineCount - 1) / 2
+    for (let j = i; Math.abs(j) <= i; j--) {
+        console.log(" ".repeat(Math.abs(j)) + "*".repeat(lineCount - Math.abs(j) - Math.abs(j)) + " ".repeat(Math.abs(j)))
     }
 }
