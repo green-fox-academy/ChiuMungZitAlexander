@@ -100,7 +100,6 @@ main .nav .thumbnails {
     height: 100px;
     width: 80%;
     margin: 0 auto;
-    overflow-x: auto;
     padding-top: 20px;
     text-align: center;
     min-width: 320px;
@@ -158,4 +157,37 @@ main .nav .thumbnails .thumbnames {
     font-size: 12px;
     top: -120px;
     color: white;
+}
+
+.popup {
+    width: 200px !important;
+    height: 50px !important;
+    position: absolute;
+    top: -60px;
+    left: -72.5px;
+    z-index: 1000;
+    text-align: center;
+}
+
+.popup::before {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 92.5px;
+    width: 0;
+    height: 0;
+    border-bottom: 8px solid transparent;
+    border-top: 8px solid #333;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+
+.popup span {
+    position: relative;
+    background: linear-gradient(to bottom, #000, #333);
+    padding: 10px 15px;
+    top: 25px;
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
 }

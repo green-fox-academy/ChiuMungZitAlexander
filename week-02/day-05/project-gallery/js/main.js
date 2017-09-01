@@ -84,8 +84,11 @@ function creatThumbs() {
         nodeDiv.setAttribute("onClick", "creatThumbsClick(" + index + ")");
         var nodeImg = document.createElement("img");
         nodeImg.src = obj.thumbnailPath;
+        var nodeDivPopup = document.createElement("div");
+        nodeDivPopup.className = "popup"
         nodeDiv.appendChild(nodeImg);
         nodeNav.appendChild(nodeDiv);
+        nodeNav.appendChild(nodeDivPopup);
         thumbDOM.appendChild(nodeNav);
     }, this);
 }
