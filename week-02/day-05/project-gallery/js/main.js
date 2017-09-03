@@ -62,6 +62,7 @@ function scroll(index) {
 
 function indexScroll() {
     slideImgDOM.src = imgArr[slideIndex].slidePath;
+    fadeIn();
     nameDOM.innerHTML = imgArr[slideIndex].name;
     descriptionDOM.innerHTML = imgArr[slideIndex].description;
 }
