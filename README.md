@@ -15,3 +15,6 @@ git & npm commands
 javascript syntax
 ### DAY-04/Aug.31st
 javascript dom operation
+
+## WEEK-03
+### DAY-01/Sep.4th
