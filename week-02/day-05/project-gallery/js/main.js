@@ -54,6 +54,7 @@ function scroll(index) {
         slideIndex += index;
     }
     slideImgDOM.src = imgArr[slideIndex].slidePath;
+    fadeIn();
     nameDOM.innerHTML = imgArr[slideIndex].name;
     descriptionDOM.innerHTML = imgArr[slideIndex].description;
     creatThumbsClick(slideIndex);
@@ -63,6 +64,20 @@ function indexScroll() {
     slideImgDOM.src = imgArr[slideIndex].slidePath;
     nameDOM.innerHTML = imgArr[slideIndex].name;
     descriptionDOM.innerHTML = imgArr[slideIndex].description;
+}
+
+function fadeIn() {
+    clearInterval(opIntv);
+    slideImgDOM.style.opacity = 0;
+    var op = 0.1;
+    var opIntv = setInterval(function() {
+        if (op > 1) {
+            clearInterval(opIntv);
+        }
+        op += 0.1;
+        slideImgDOM.style.opacity = op;
+    }, 20)
+    
 }
 
 // function autoScroll() {
