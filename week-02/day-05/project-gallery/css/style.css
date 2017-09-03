@@ -167,6 +167,7 @@ main .nav .thumbnails .thumbnames {
     left: -72.5px;
     z-index: 1000;
     text-align: center;
+    display: none;
 }
 
 .popup::before {

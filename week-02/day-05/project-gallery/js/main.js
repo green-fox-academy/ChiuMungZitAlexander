@@ -36,6 +36,7 @@ var slideImgDOM = document.querySelector(".pic img");
 var nameDOM = document.querySelector(".pic .description h2");
 var descriptionDOM = document.querySelector(".pic .description p");
 var thumbDOM = document.querySelector(".thumbnails");
+var popupDOMs = [];
 
 window.onload = function () {
     scroll(0);
@@ -82,15 +83,21 @@ function creatThumbs() {
         }
         var nodeDiv = document.createElement("div");
         nodeDiv.setAttribute("onClick", "creatThumbsClick(" + index + ")");
+        nodeDiv.setAttribute("onMouseOver", "showPopup(" + index + ")");
+        nodeDiv.setAttribute("onMouseOut", "hidePopup(" + index + ")");
         var nodeImg = document.createElement("img");
         nodeImg.src = obj.thumbnailPath;
         var nodeDivPopup = document.createElement("div");
         nodeDivPopup.className = "popup"
+        var nodeSpan = document.createElement("span");
+        nodeSpan.innerHTML = obj.name;
+        nodeDivPopup.appendChild(nodeSpan);
         nodeDiv.appendChild(nodeImg);
         nodeNav.appendChild(nodeDiv);
         nodeNav.appendChild(nodeDivPopup);
         thumbDOM.appendChild(nodeNav);
     }, this);
+    popupDOMs = document.querySelectorAll(".popup");
 }
 
 function creatThumbsClick(index) {
@@ -104,3 +111,21 @@ function creatThumbsClick(index) {
     slideIndex = index;
     indexScroll();
 }
+
+function showPopup(i) {
+    popupDOMs.forEach(function(dom, index, array) {
+        if (i === index) {
+            dom.style.display = "block";
+        }
+    }, this);
+}
+
+function hidePopup(i) {
+    popupDOMs.forEach(function(dom, index, array) {
+        if (i === index) {
+            dom.style.display = "none";
+        }
+    }, this);
+}
+
+
