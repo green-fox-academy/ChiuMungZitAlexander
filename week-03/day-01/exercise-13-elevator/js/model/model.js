@@ -1,3 +1,5 @@
+'use strict';
+
 function ElevatorModel(_maxFloor, _maxPeople) {
     this.people = 0;
     this.floor = 0;
