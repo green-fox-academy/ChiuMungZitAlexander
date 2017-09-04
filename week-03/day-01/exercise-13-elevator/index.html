@@ -8,29 +8,19 @@
     <main>
         <section class="control">
             <section class="moveControl">
-                <button>Up</button>
-                <button>Down</button>
+                <button onclick="up()">Up</button>
+                <button onclick="down()">Down</button>
             </section>
             <section class="peopleControl">
-                <button>Add People</button>
-                <button>Remove People</button>
+                <button onclick="add()">Add People</button>
+                <button onclick="remove()">Remove People</button>
             </section>
         </section>
         <section class="floor">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div class="active"></div>
+            
         </section>
     </main>
 </body>
 <script src="js/model/model.js"></script>
-<script src="js/controller/moveController.js"></script>
-<script src="js/controller/peopleController.js"></script>
+<script src="js/controller/controller.js"></script>
 </html>
