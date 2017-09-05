@@ -43,7 +43,7 @@ window.addEventListener('load', function () {
             buttonElement.appendChild(document.createTextNode(buttonDescriptor[0]));
             buttonElement.setAttribute('data-vehicle-type', buttonDescriptor[1]);
             buttonElement.addEventListener("click", function () {
-                console.log(window[buttonDescriptor[1]].printMaxSpeed());
+               window[buttonDescriptor[1]].printMaxSpeed();
             })
             return buttonElement;
         })
