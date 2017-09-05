@@ -19,4 +19,7 @@ javascript dom operation
 ## WEEK-03
 ### DAY-01/Sep.4th
 object orientation js
-### DAY-05/Sep.5th
+### DAY-02/Sep.5th
+callback & async programming
+### DAY-03/Sep.6th
+ajax and fetch
