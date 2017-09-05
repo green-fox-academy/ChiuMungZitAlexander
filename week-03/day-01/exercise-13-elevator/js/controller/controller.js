@@ -1,6 +1,6 @@
 'use strict';
 
-const maxFloor = 8; // ANY VALUE, FLOOR DIVs WILL BE AUTOMATICALLY FILLED
+const maxFloor = 10; // ANY VALUE, FLOOR DIVs WILL BE AUTOMATICALLY FILLED
 const maxPeople = 13; // ANY VALUE
 
 var elevatorModel = new ElevatorModel(maxFloor, maxPeople);

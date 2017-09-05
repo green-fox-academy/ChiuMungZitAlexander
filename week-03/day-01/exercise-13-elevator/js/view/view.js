@@ -17,8 +17,8 @@ function createDiv(maxFloor) {
 }
 
 function active() {
-    let currentP = getElevatorModel.people;
-    let currentF = getElevatorModel.floor;
+    let currentP = getElevatorModel().people;
+    let currentF = getElevatorModel().floor;
     let str = "floor" + currentF;
     let domArr = document.querySelectorAll("main .floor div");
     domArr.forEach(function(dom) {
