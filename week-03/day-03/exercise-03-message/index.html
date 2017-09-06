@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Document</title>
+<style>
+    .inputSection span {
+        color: red;
+    }
+
+    .messageSection {
+        width: 50%;
+        margin-top: 20px;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .messageSection ul li {
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+
+<body>
+    <section class="inputSection">
+        Name: <input type="text" name="" id="inputName"> Text: <input type="text" name="" id="inputText" placeholder="Input text here.">
+        <button onclick="startPostRequest()">Send Message</button>
+        <span class="warning"></span>
+    </section>
+    <section class="messageSection">
+        <i>The Lastest 5 messages.</i>
+        <hr>
+        <ul>
+            <!-- <li>
+                <p class="name">Name: <span></span></p>
+                <p class="message">Message: <span></span></p>
+            </li> -->
+        </ul>
+    </section>
+</body>
+<script src="main.js"></script>
+
+</html>

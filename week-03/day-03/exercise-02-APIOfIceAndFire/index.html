@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+<style>
+    main {
+        text-align: center;
+    }
+
+    main>div {
+        display: inline-block;
+        margin: 0 auto;
+    }
+
+    button {
+        height: 20px;
+        width: 150px;
+    }
+    ol {
+        display: inline-block;
+        text-align: left;
+    }
+    ol li span {
+        display: inline-block;
+        width: 220px;
+    }
+</style>
+
+<body>
+    <main>
+        <div>
+            <button class="first" onclick="pageSearch(0, 1)">First</button>
+            <button class="previous" onclick="pageSearch(-1)">Previous</button>
+            <button class="next" onclick="pageSearch(1)">Next</button>
+            <button class="last" onclick="pageSearch(0, 214)">Last</button>
+            <section>
+                <ol class="characterList"></ol>
+            </section>
+        </div>
+    </main>
+</body>
+<script src="main.js"></script>
+
+</html>
