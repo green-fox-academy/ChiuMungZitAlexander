@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Reddit</title>
+    <link rel="stylesheet" href="css/content.css">
+    <link rel="stylesheet" href="css/shelter.css">
+</head>
+
+<body>
+    <header>
+        <div class="banner-left">
+            <span>MAIN - </span>
+            <span class="new-post" onclick="showPostWindow()">CREATE NEW POST</span>
+        </div>
+        <div class="banner-right">
+            <span>SIGN IN</span>
+        </div>
+    </header>
+    <main>
+        <section class="post-content-list">
+            <!-- <section class="post">
+                <div class="order-num">1</div>
+                <div class="up-down">
+                    <div class="up"></div>
+                    <div class="up-number">1234</div>
+                    <div class="down"></div>
+                </div>
+                <div class="post-content">
+                    <div class="title">China and India ceased fire in the disputed area in the South Tibet.</div>
+                    <div class="time">submitted 5 minutes ago by Bob</div>
+                    <div class="operation">
+                        <span>modify</span>
+                        <span>remove</span>
+                    </div>
+                </div>
+            </section> -->
+            <!-- <section class="post">
+                <div class="order-num">2</div>
+                <div class="up-down">
+                    <div class="up"></div>
+                    <div class="up-number">1234</div>
+                    <div class="down"></div>
+                </div>
+                <div class="post-content">
+                    <div class="title">China and India ceased fire in the disputed area in the South Tibet.</div>
+                    <div class="time">submitted 5 minutes ago by Bob</div>
+                    <div class="operation">
+                        <span>modify</span>
+                        <span>remove</span>
+                    </div>
+                </div>
+            </section> -->
+        </section>
+        <section class="post-shelter" onclick="hidePostWindow()">
+            <section class="post-window">
+                <p>Submit to the Page </p>
+                <section class="exit" onclick="hidePostWindow()"></section>
+                <div class="post-url">
+                    <p>URL</p>
+                    <input type="text" name="" id="url-input">
+                </div>
+                <div class="post-title">
+                    <p>Title (necessary)</p>
+                    <textarea id="title-input"></textarea>
+                </div>
+                <div class="post-option">
+                    <p>Options</p>
+                    <label for="op"><input type="checkbox" name="op" id="anonymus-check">post as anonymus</label>
+                </div>
+                <div class="post-button">
+                    <button onclick="postSubmit()">SUBMIT</button>
+                    <button onclick="postReset()">RESET</button>
+                </div>
+            </section>
+        </section>
+    </main>
+</body>
+<script src="js/main.js"></script>
+<script src="js/popup.js"></script>
+
+</html>

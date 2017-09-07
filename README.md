@@ -22,4 +22,4 @@ object orientation js
 ### DAY-02/Sep.5th
 callback & async programming
 ### DAY-03/Sep.6th
-ajax and fetch
+ajax and backend request
