@@ -144,3 +144,8 @@ main .post-shelter .post-window .post-button button {
 main .post-shelter .post-window .post-button button:last-child {
     background: orangered;
 }
+
+
+main .post-shelter .post-window .warning {
+    color: red;
+}
