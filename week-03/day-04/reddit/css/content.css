@@ -1,6 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 p {
@@ -135,3 +136,17 @@ main .post .post-content .operation > span {
     cursor: pointer;
 }
 
+main .voteReminder {
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    position: fixed;
+    left: 50%;
+    top: 50px;
+    margin-left: -60px; 
+    background: linear-gradient(to bottom, #000000, #999999);
+    border-radius: 10px;
+    display: none;
+}

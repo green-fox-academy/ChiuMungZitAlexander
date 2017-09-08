@@ -9,13 +9,8 @@ PUT /posts/<id> */
 
 const HOST_NAME = "https://time-radish.glitch.me/posts/";
 const POST_LIST_DOM = document.querySelector(".post-content-list");
+const VOTE_REMINDER = document.querySelector(".voteReminder");
 const MAX_LIST_LEGNTH = 20;
-var innerHTML1 = '<section class="post"><div class="order-num">';
-var innerHTML2 = '</div><div class="up-down"><div class="up"></div><div class="up-number">';
-var innerHTML3 = '</div><div class="down"></div></div><div class="post-content"><div class="title" title="'
-var innerHTML3_1 = '">';
-var innerHTML4 = '</div><div class="time">';
-var innerHTML5 = '</div><div class="operation"><span>modify</span><span>remove</span></div></div></section>';
 var postContent = [];
 
 window.onload = function () {
@@ -54,8 +49,9 @@ function httpPostRequest(headerObj) {
 }
 
 function updateEntirePostList(maxlen) {
-    postContent.splice(0, maxlen).forEach(function (postObj, index) {
-        createPostList(index, postObj.score, postObj.title, postObj.timestamp, postObj.owner);
+    POST_LIST_DOM.innerHTML = "";
+    postContent.slice(0, maxlen).forEach(function (postObj, index) {
+        createPostList(index, postObj.score, postObj.title, postObj.timestamp, postObj.owner, postObj.vote, postObj.id);
     }, this);
 }
 
@@ -63,7 +59,7 @@ function updateSinglePost() {
 
 }
 
-function createPostList(index, upNumber, title, time, owner) {
+function createPostList(index, upNumber, title, time, owner, vote, id) {
     if (!title) {
         title = "(No Title)";
     }
@@ -102,5 +98,117 @@ function createPostList(index, upNumber, title, time, owner) {
     } else {
         leaveTime = "submitted just now by " + owner;
     }
-    POST_LIST_DOM.innerHTML += innerHTML1 + (index + 1) + innerHTML2 + upNumber + innerHTML3 + title + innerHTML3_1 + title + innerHTML4 + leaveTime + innerHTML5;
+    // POST_LIST_DOM.innerHTML += innerHTML1 + (index + 1) + innerHTML2 + upNumber + innerHTML3 + title + innerHTML3_1 + title + innerHTML4 + leaveTime + innerHTML5;
+    let postDom = document.createElement("section");
+    postDom.className = "post";
+    let orderNumDom = document.createElement("div");
+    orderNumDom.className = "order-num";
+    orderNumDom.innerHTML = index + 1;
+    let upDownDom = document.createElement("div");
+    upDownDom.className = "up-down";
+    let upDom = document.createElement("div");
+    upDom.className = "up";
+    upDom.addEventListener("click", upVoteRequest(id));
+    if (vote === 1 || sessionStorage.getItem(id + "up")) {
+        upDom.style.background = 'url("./img/upvoted.png") no-repeat center center';
+    }
+    let upNumberDom = document.createElement("div");
+    upNumberDom.className = "up-number";
+    upNumberDom.innerHTML = upNumber;
+    let downDom = document.createElement("div");
+    downDom.className = "down";
+    downDom.addEventListener("click", downVoteRequest(id));
+    if (vote === -1 || sessionStorage.getItem(id + "down")) {
+        downDom.style.background = 'url("./img/downvoted.png") no-repeat center center';
+    }
+    upDownDom.appendChild(upDom);
+    upDownDom.appendChild(upNumberDom);
+    upDownDom.appendChild(downDom);
+    let postContentDom = document.createElement("div");
+    postContentDom.className = "post-content";
+    let titleDom = document.createElement("div");
+    titleDom.className = "title";
+    titleDom.title = title;
+    titleDom.innerText = title;
+    let timeDom = document.createElement("div");
+    timeDom.className = "time";
+    timeDom.innerText = leaveTime;
+    let operationDom = document.createElement("div");
+    operationDom.className = "operation";
+    let modifySpanDom = document.createElement("span");
+    modifySpanDom.innerText = "modify";
+    let removeSpanDom = document.createElement("span");
+    removeSpanDom.innerText = "remove";
+    removeSpanDom.addEventListener("click", deletePost(id));
+    operationDom.appendChild(modifySpanDom);
+    operationDom.appendChild(removeSpanDom);
+    postContentDom.appendChild(titleDom);
+    postContentDom.appendChild(timeDom);
+    postContentDom.appendChild(operationDom);
+    postDom.appendChild(orderNumDom);
+    postDom.appendChild(upDownDom);
+    postDom.appendChild(postContentDom);
+    POST_LIST_DOM.appendChild(postDom);
+}
+
+function upVoteRequest(postid) {
+    return function () {
+        fetch(HOST_NAME + postid + "/upvote", {
+            method: 'PUT',
+            headers: {
+                'accept': 'application/json'
+            },
+        }).then(function (response) {
+            sessionStorage.setItem(postid + "up", true);
+            updateEntirePostList(MAX_LIST_LEGNTH);
+            showVoteReminder()
+        })
+    }
+}
+
+function downVoteRequest(postid) {
+    return function () {
+        fetch(HOST_NAME + postid + "/downvote", {
+            method: 'PUT',
+            headers: {
+                'accept': 'application/json'
+            },
+        }).then(function (response) {
+            sessionStorage.setItem(postid + "down", true);
+            updateEntirePostList(MAX_LIST_LEGNTH);
+            showVoteReminder()
+        })
+    }
+}
+
+function showVoteReminder() {
+    VOTE_REMINDER.style.display = "block";
+    let opacity = 2.5;
+    let id = setInterval(function () {
+        if (opacity > 0) {
+            opacity -= 0.1;
+            VOTE_REMINDER.style.opacity = opacity;
+        } else {
+            VOTE_REMINDER.display = "none";
+            clearInterval(id)
+        }
+    }, 50)
+}
+
+function deletePost(postid) {
+    return function () {
+        let confirmation = confirm("Really want to delete this post?");
+        if (confirmation) {
+            fetch(HOST_NAME + postid, {
+                method: 'DELETE',
+                headers: {
+                    'accept': 'application/json'
+                },
+            }).then(function (response) {
+                httpGetRequest();
+            })
+        } else {
+            return;
+        }
+    }
 }
