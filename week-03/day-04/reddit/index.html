@@ -11,7 +11,7 @@
     <header>
         <div class="banner-left">
             <span>MAIN - </span>
-            <span class="new-post" onclick="showPostWindow()">CREATE NEW POST</span>
+            <span class="new-post" onclick="showPostWindow(0)">CREATE NEW POST</span>
         </div>
         <div class="banner-right">
             <span>SIGN IN</span>
@@ -69,7 +69,8 @@
                     <label for="op"><input type="checkbox" name="op" id="anonymus-check">post as anonymus</label>
                 </div>
                 <div class="post-button">
-                    <button onclick="postSubmit()">SUBMIT</button>
+                    <button onclick="postSubmit(0)" id="submit">SUBMIT</button>
+                    <button onclick="postSubmit(1)" id="modify">MODIFY</button>
                     <button onclick="postReset()">RESET</button>
                 </div>
             </section>

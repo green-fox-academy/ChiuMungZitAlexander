@@ -7,7 +7,14 @@ const TITLE_INPUT_DOM = document.getElementById("title-input");
 const CHECKBOX_DOM = document.getElementById("anonymus-check");
 const WARNING_DOM = document.querySelector(".warning");
 
-function showPostWindow() {
+function showPostWindow(method) {
+    if (method === 0) {
+        document.getElementById("submit").style.display = "inline-block";
+        document.getElementById("modify").style.display = "none";
+    } else {
+        document.getElementById("submit").style.display = "none";
+        document.getElementById("modify").style.display = "inline-block";
+    }
     let yOffest = -20;
     let opacity = 0;
     SHELTER_DOM.style.display = "block";
@@ -36,9 +43,10 @@ function postReset() {
 }
 
 function postSubmit() {
+    // METHOD - 0 FOR NEW POST OR 1 FOR MODIFY
     WARNING_DOM.innerHTML = "";
     if (!TITLE_INPUT_DOM.value) {
-        WARNING_DOM.innerHTML = "***Title cannot be empty.***";
+        WARNING_DOM.innerHTML = "&larr;Title cannot be empty.";
         return;
     } else {
         let requestObj = {

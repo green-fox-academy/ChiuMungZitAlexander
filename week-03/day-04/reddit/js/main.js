@@ -137,6 +137,9 @@ function createPostList(index, upNumber, title, time, owner, vote, id) {
     operationDom.className = "operation";
     let modifySpanDom = document.createElement("span");
     modifySpanDom.innerText = "modify";
+    modifySpanDom.addEventListener("click", function() {
+        return showPostWindow(1);
+    });
     let removeSpanDom = document.createElement("span");
     removeSpanDom.innerText = "remove";
     removeSpanDom.addEventListener("click", deletePost(id));
@@ -153,6 +156,10 @@ function createPostList(index, upNumber, title, time, owner, vote, id) {
 
 function upVoteRequest(postid) {
     return function () {
+        if (sessionStorage.getItem(postid + "up")) {
+            alert("You have voted!");
+            return;
+        }
         fetch(HOST_NAME + postid + "/upvote", {
             method: 'PUT',
             headers: {
@@ -161,13 +168,18 @@ function upVoteRequest(postid) {
         }).then(function (response) {
             sessionStorage.setItem(postid + "up", true);
             updateEntirePostList(MAX_LIST_LEGNTH);
-            showVoteReminder()
+            showVoteReminder();
+            httpGetRequest();
         })
     }
 }
 
 function downVoteRequest(postid) {
     return function () {
+        if (sessionStorage.getItem(postid + "down")) {
+            alert("You have voted!");
+            return;
+        }
         fetch(HOST_NAME + postid + "/downvote", {
             method: 'PUT',
             headers: {
@@ -176,7 +188,9 @@ function downVoteRequest(postid) {
         }).then(function (response) {
             sessionStorage.setItem(postid + "down", true);
             updateEntirePostList(MAX_LIST_LEGNTH);
-            showVoteReminder()
+            // dom.previousSibling.textContent++;
+            showVoteReminder();
+            httpGetRequest();
         })
     }
 }
@@ -210,5 +224,18 @@ function deletePost(postid) {
         } else {
             return;
         }
+    }
+}
+
+function modifyPost() {
+    return function () {
+        fetch(HOST_NAME + postid, {
+            method: 'DELETE',
+            headers: {
+                'accept': 'application/json'
+            },
+        }).then(function (response) {
+            httpGetRequest();
+        })
     }
 }
