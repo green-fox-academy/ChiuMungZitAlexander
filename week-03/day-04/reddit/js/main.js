@@ -21,6 +21,7 @@ window.onload = function () {
 }
 
 function httpGetRequest() {
+    POST_LIST_DOM.innerHTML = "";
     let img = document.createElement("img");
     img.src = "./img/loading.gif";
     POST_LIST_DOM.appendChild(img);
@@ -51,15 +52,11 @@ function httpPostRequest(headerObj) {
 function updateEntirePostList(maxlen) {
     POST_LIST_DOM.innerHTML = "";
     postContent.slice(0, maxlen).forEach(function (postObj, index) {
-        createPostList(index, postObj.score, postObj.title, postObj.timestamp, postObj.owner, postObj.vote, postObj.id);
+        createPostList(index, postObj.score, postObj.title, postObj.timestamp, postObj.owner, postObj.vote, postObj.id, postObj.href);
     }, this);
 }
 
-function updateSinglePost() {
-
-}
-
-function createPostList(index, upNumber, title, time, owner, vote, id) {
+function createPostList(index, upNumber, title, time, owner, vote, id, href) {
     if (!title) {
         title = "(No Title)";
     }
@@ -137,8 +134,8 @@ function createPostList(index, upNumber, title, time, owner, vote, id) {
     operationDom.className = "operation";
     let modifySpanDom = document.createElement("span");
     modifySpanDom.innerText = "modify";
-    modifySpanDom.addEventListener("click", function() {
-        return showPostWindow(1);
+    modifySpanDom.addEventListener("click", function () {
+        return showPostWindow(1, title, href, id);
     });
     let removeSpanDom = document.createElement("span");
     removeSpanDom.innerText = "remove";
@@ -156,6 +153,9 @@ function createPostList(index, upNumber, title, time, owner, vote, id) {
 
 function upVoteRequest(postid) {
     return function () {
+        let img = document.createElement("img");
+        img.src = "./img/loading.gif";
+        POST_LIST_DOM.appendChild(img);
         if (sessionStorage.getItem(postid + "up")) {
             alert("You have voted!");
             return;
@@ -216,7 +216,7 @@ function deletePost(postid) {
             fetch(HOST_NAME + postid, {
                 method: 'DELETE',
                 headers: {
-                    'accept': 'application/json'
+                    'Accept': 'application/json'
                 },
             }).then(function (response) {
                 httpGetRequest();
@@ -227,15 +227,17 @@ function deletePost(postid) {
     }
 }
 
-function modifyPost() {
-    return function () {
-        fetch(HOST_NAME + postid, {
-            method: 'DELETE',
-            headers: {
-                'accept': 'application/json'
-            },
-        }).then(function (response) {
-            httpGetRequest();
-        })
-    }
+function modifyPost(requestObj, postid) {
+    // console.log(requestObj, postid);
+    fetch(HOST_NAME + postid, {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Username': 'Anonymous'
+        },
+        body: JSON.stringify(requestObj)
+    }).then(function (response) {
+        httpGetRequest();
+    })
 }
