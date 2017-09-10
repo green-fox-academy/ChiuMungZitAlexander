@@ -23,3 +23,7 @@ object orientation js
 callback & async programming
 ### DAY-03/Sep.6th
 ajax and backend request
+### DAY-04/Sep.7th
+codewars and Project Reddit
+### DAY-05/Sep.8th
+Project Reddit and presentation
