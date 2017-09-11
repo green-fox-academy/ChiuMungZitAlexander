@@ -15,7 +15,6 @@ html, body {
 }
 
 span {
-    /* transform: rotate(-45deg); */
     font-weight: bold;
     letter-spacing: 3px;
     color: black;
