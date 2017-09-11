@@ -1,0 +1,60 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 6em;
+    width: 100%;
+    background-color: purple;
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    width: 10em;
+    height: 3em;
+    margin: 0 2em;
+    background-color: cyan;
+}
+
+main {
+    width: 95%;
+    min-width: 60em;
+    height: 50em;
+    margin: 1em auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.5em;
+}
+
+.item {
+    box-sizing: border-box;
+    padding: 0.5em;
+    width: 49%;
+    height: 40%;
+    background-color: green;
+    margin: 0.5%;
+    overflow: hidden;
+}
+
+.item.wrapper {
+    width: 24%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item.wrapper > section {
+    width: 10em;
+    height: 15em;
+    background-color: red;
+}
+
+footer {
+    margin-top: 0.5em;
+    height: 9.5em;
+    width: 99%;
+    background-color: grey;
+}

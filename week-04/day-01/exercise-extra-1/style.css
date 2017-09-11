@@ -1,0 +1,20 @@
+.container {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-between;
+    background-color: yellow;
+}
+
+.item {
+    width: 97px;
+    height: 97px;
+    margin-bottom: 3px;
+    background-color: purple;
+}
+
+.yellow {
+    background-color: yellow;
+}

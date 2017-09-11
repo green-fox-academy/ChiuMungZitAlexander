@@ -1,0 +1,104 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 6em;
+    width: 60em;
+    min-width: 60em;
+    margin: 0 auto;
+    background-color: purple;
+    display: flex;
+    align-items: center;
+}
+
+header > div {
+    flex-grow: 1;
+    display: flex;
+}
+
+.left > nav {
+    width: 8em;
+    height: 3em;
+    margin: 0 1em;
+    background-color: cyan;
+}
+
+.right {
+    flex-direction: row-reverse;
+}
+
+.right > nav {
+    height: 3em;
+    width: 3em;
+    float: right;
+    background-color: cyan;
+    margin: 0 1em;
+}
+
+main {
+    width: 60em;
+    min-width: 60em;
+    /* height: 50em; */
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+aside {
+    box-sizing: border-box;
+    /* height: 40em; */
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+aside.yellow {
+    background-color: yellow;
+    width: 65%;
+    justify-content: space-between;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.between {
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+.item {
+    width: 8.5em;
+    height: 8.5em;
+    background-color: red;
+    margin-bottom: 1em;
+}
+
+.text {
+    width: 49%;
+    overflow: hidden;
+}
+
+aside.green {
+    background-color: green;
+    width: 35%;
+    padding: 1em;
+    justify-content: space-between;
+}
+
+.item-2 {
+    height: 3em;
+    width: 100%;
+    background-color: violet;
+    margin-bottom: 1em;
+}
+
+.item-2:last-child {
+    margin: 0;
+}
