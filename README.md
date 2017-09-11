@@ -27,3 +27,7 @@ ajax and backend request
 codewars and Project Reddit
 ### DAY-05/Sep.8th
 Project Reddit and presentation
+
+## WEEK-04
+### DAY-01/Sep.11th
+flex layout and code review
