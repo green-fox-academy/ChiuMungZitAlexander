@@ -1,0 +1,45 @@
+html, body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333333;
+    height: 100%;
+}
+
+.base {
+    width: 120px;
+    height: 120px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    transform: rotate(45deg);
+}
+
+span {
+    /* transform: rotate(-45deg); */
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: black;
+    transition: 0.5s;
+}
+
+.rotatingDiv {
+    box-sizing: border-box;
+    width: 120px;
+    height: 120px;
+    border: 2px solid red;
+    border-radius: 4px;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+.rotatingDiv:hover {
+    transform: rotate(0deg);
+}
+
+.rotatingDiv:hover > span {
+    color: red;
+    transform: rotate(-45deg);
+}
