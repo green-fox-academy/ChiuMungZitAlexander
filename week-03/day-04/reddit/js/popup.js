@@ -7,13 +7,20 @@ const TITLE_INPUT_DOM = document.getElementById("title-input");
 const CHECKBOX_DOM = document.getElementById("anonymus-check");
 const WARNING_DOM = document.querySelector(".warning");
 
-function showPostWindow(method) {
+function showPostWindow(method, title, href, postid) {
     if (method === 0) {
         document.getElementById("submit").style.display = "inline-block";
         document.getElementById("modify").style.display = "none";
     } else {
         document.getElementById("submit").style.display = "none";
         document.getElementById("modify").style.display = "inline-block";
+        document.getElementById("modify").addEventListener("click", function() {
+            return postSubmit(1, postid);
+        })
+    }
+    if (title || href) {
+        URL_INPUT_DOM.value = href;
+        TITLE_INPUT_DOM.value = title;
     }
     let yOffest = -20;
     let opacity = 0;
@@ -40,9 +47,10 @@ function postReset() {
     URL_INPUT_DOM.value = null;
     TITLE_INPUT_DOM.value = null;
     CHECKBOX_DOM.checked = false;
+    WARNING_DOM.innerHTML = "";
 }
 
-function postSubmit() {
+function postSubmit(method, postid) {
     // METHOD - 0 FOR NEW POST OR 1 FOR MODIFY
     WARNING_DOM.innerHTML = "";
     if (!TITLE_INPUT_DOM.value) {
@@ -53,11 +61,19 @@ function postSubmit() {
             "title": TITLE_INPUT_DOM.value,
             "href": URL_INPUT_DOM.value
         }
-        httpPostRequest(requestObj);
+        if (!method) {
+            httpPostRequest(requestObj);
+        } else {
+            modifyPost(requestObj, postid);
+            document.getElementById("modify").removeEventListener("click", function() {
+                return postSubmit(1, postid);
+            })
+        }
         hidePostWindow();
         postReset();
         let img = document.createElement("img");
         img.src = "./img/loading.gif";
+        POST_LIST_DOM.innerHTML = "";
         POST_LIST_DOM.appendChild(img);
     }
 }
