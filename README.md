@@ -31,3 +31,6 @@ Project Reddit and presentation
 ## WEEK-04
 ### DAY-01/Sep.11th
 flex layout and code review
+### DAY-02/Sep.12th
+js backend
+### DAY-03/Sep.13th
