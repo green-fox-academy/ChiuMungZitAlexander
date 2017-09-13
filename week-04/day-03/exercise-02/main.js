@@ -2,73 +2,6 @@
 
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
-var students = [
-    {
-        "name": "Alexander Zhao",
-        "github": "ChiuMungZitAlexander",
-        "gender": "male"
-    },
-    {
-        "name": "Alfred Wei",
-        "github": "AlfredWei0420",
-        "gender": "male"
-    },
-    {
-        "name": "Alice Shen",
-        "github": "aliceshen227",
-        "gender": "female"
-    },
-    {
-        "name": "Chase Wang",
-        "github": "chasssssse",
-        "gender": "male"
-    },
-    {
-        "name": "Chris Huang",
-        "github": "ChrisH404",
-        "gender": "male"
-    },
-    {
-        "name": "Haochen Li",
-        "github": "haochenli",
-        "gender": "male"
-    },
-    {
-        "name": "Jerry Liu",
-        "github": "Jerry-ZWL",
-        "gender": "male"
-    },
-    {
-        "name": "Jessie Cai",
-        "github": "ttttsai",
-        "gender": "female"
-    },
-    {
-        "name": "John Doe",
-        "github": "janedoe",
-        "gender": "male"
-    },
-    {
-        "name": "Leo Lam",
-        "github": "linjialiang1234",
-        "gender": "male"
-    },
-    {
-        "name": "Vinson Liu",
-        "github": "sliu102",
-        "gender": "male"
-    },
-    {
-        "name": "Zhengnan Zhang",
-        "github": "ZhengnanZhang",
-        "gender": "male"
-    },
-    {
-        "name": "Zoe Zhou",
-        "github": "Zoe_Zhou",
-        "gender": "male"
-    }
-]
 
 var url = 'mongodb://localhost:27017/epam';
 
@@ -79,16 +12,89 @@ MongoClient.connect(url, function (err, db) {
     }
     console.log('Connection established to ' + url);
     printMyInfo(db, 'Alexander Zhao');
-    db.close();
 });
 
 var printMyInfo = function (db, name) {
     var collection = db.collection('students');
-    collection.find({'name': name}).toArray(function (err, result) {
+    var query = {
+        'name': name
+    }
+    collection.find(query).toArray(function (err, result) {
         if (err) {
             throw err;
         } else {
-            console.log(result);
+            result.forEach(function(element) {
+                for (let key in element) {
+                    console.log(key + '\t' + element[key]);
+                }
+            }, this);
+            console.log('---------------------------');
+            printEveryUserName(db);
+        }
+    })
+}
+
+var printEveryUserName = function (db) {
+    var collection = db.collection('students');
+    var projection = {
+        'github': 1,
+        '_id': 0
+    }
+    collection.find({}, projection).toArray(function (err, result) {
+        if (err) {
+            throw err;
+        } else {
+            result.forEach(function(element) {
+                console.log(element.github);
+            }, this);
+            console.log('---------------------------');
+            printEveryNameExceptMe(db, 'Alexander Zhao');
+        }
+    })
+}
+
+var printEveryNameExceptMe = function (db, name) {
+    var collection = db.collection('students');
+    var query = {
+        'name': {
+            $ne: name
+        }
+    }
+    var projection = {
+        'name': 1,
+        '_id': 0
+    }
+    collection.find(query, projection).toArray(function (err, result) {
+        if (err) {
+            throw err;
+        } else {
+            result.forEach(function(element) {
+                console.log(element.name);
+            }, this);
+            console.log('---------------------------');
+            printMalesOrFemales(db, 'female');
+        }
+    })
+}
+
+var printMalesOrFemales = function (db, gender) {
+    var collection = db.collection('students');
+    var query = {
+        'gender': gender
+    }
+    var projection = {
+        '_id': 0
+    }
+    collection.find(query, projection).toArray(function (err, result) {
+        if (err) {
+            throw err;
+        } else {
+            console.log(gender + ':');
+            result.forEach(function(element) {
+                console.log(element.name);
+            }, this);
+            console.log('---------------------------');
+            db.close();
         }
     })
 }

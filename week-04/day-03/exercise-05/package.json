@@ -7,10 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "ALEXANDER",
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.4",
-    "mongodb": "^2.2.31"
+    "mongodb": "^2.2.31",
+    "body-parser": "^1.18.0"
   }
 }
