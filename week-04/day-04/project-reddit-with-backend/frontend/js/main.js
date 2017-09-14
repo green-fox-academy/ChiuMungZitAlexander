@@ -221,7 +221,6 @@ function deletePost(postid) {
 }
 
 function modifyPost(requestObj, postid) {
-    // console.log(requestObj, postid);
     fetch(HOST_NAME + postid, {
         method: 'PUT',
         headers: {

@@ -28,7 +28,7 @@ function insertPost(db, body, callback) {
             console.log('Error:' + err);
             throw err;
         }
-        console.log(result.nInserted);
+        console.log(result);
         db.close();
         callback(document);
     });
@@ -51,11 +51,31 @@ function deletePost(db, condition, callback) {
             });
         }
     });
+}
 
+function modifyPost(db, condition, callback) {
+    var collection = db.collection('posts');
+    condition.query._id = new ObjectID(condition.query._id );
+    let date = new Date();
+    condition.modification.$set.timestamp = date.getTime();
+    collection.updateOne(condition.query, condition.modification, function (err, result) {
+        if (err) {
+            throw err;
+        } else {
+            collection.find(condition.query).toArray(function (err, queryResult) {
+                if (err) {
+                    throw err;
+                }
+                db.close();
+                callback(queryResult);
+            });
+        }
+    });
 }
 
 module.exports = {
     queryPost: queryPost,
     insertPost: insertPost,
-    deletePost: deletePost
+    deletePost: deletePost,
+    modifyPost: modifyPost
 }

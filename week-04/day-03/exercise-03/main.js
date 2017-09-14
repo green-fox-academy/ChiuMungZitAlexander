@@ -43,7 +43,7 @@ var updateMyAge = function (db, age) {
             'age': age
         }
     }
-    collection.updateOne(query, modify,  function (err, result) {
+    collection.updateOne(query, modify, function (err, result) {
         if (err) {
             throw err
         } else {

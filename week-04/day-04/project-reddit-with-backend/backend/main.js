@@ -46,6 +46,27 @@ app.delete('/posts/:id', function (req, res) {
     }
 })
 
+app.put('/posts/:id', function (req, res) {
+    if (!req.params.id) {
+        throw 'Error, no id';
+    } else {
+        let modifyCondition = {
+            query: {
+                '_id': req.params.id
+            },
+            modification: {
+                $set: {
+                    title: req.body.title,
+                    href: req.body.href
+                }
+            }
+        }
+        connectMongo(dbOperation.modifyPost, modifyCondition, function (responseBody) {
+            res.send(responseBody);
+        });
+    }
+})
+
 app.listen(process.env.port || 3000, function () {
     console.log('now listening for requests');
 });
