@@ -1,0 +1,152 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+p {
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    height: 20px;
+    background-color: #cccccc;
+    border-bottom: 2px solid #999999;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+header > div {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+header .banner-left {
+    float: left;
+}
+
+header .banner-right {
+    float: right;
+}
+
+header .new-post {
+    cursor: pointer;
+}
+
+header .new-post:hover {
+    color: red;
+}
+
+main .post-content-list {
+    width: 98%;
+    margin: 0 auto;
+}
+
+main .post-content-list > img {
+    position: absolute;
+    top: 20%;
+    left: calc(50% - 150px);
+}
+
+main .post {
+    width: 100%;
+    height: 60px;
+    margin: 10px 0;
+}
+
+main .post > div {
+    height: 60px;
+    float: left;
+}
+
+main .post .order-num {
+    width: 25px;
+    line-height: 60px;
+    text-align: right;
+    font-size: 20px;
+    color: #bbbbbb;
+}
+
+.post-content-list .post:first-child .order-num {
+    color: red;
+}
+
+.post-content-list .post:nth-child(2) .order-num {
+    color: orange;
+}
+
+.post-content-list .post:nth-child(3) .order-num {
+    color: lime;
+}
+
+main .post .up-down {
+    left: 2%;
+    margin: 0 10px;
+    width: 60px;
+    text-align: center;
+}
+
+main .up-down .up {
+    height: 30%;
+    background: url("../img/upvote.png") no-repeat center center;
+    cursor: pointer;
+}
+
+main .up-down .up-number {
+    height: 40%;
+    line-height: 24px;
+    color: #bbbbbb;
+    font-weight: bold;
+}
+
+main .up-down .down {
+    height: 30%;
+    background: url("../img/downvote.png") no-repeat center center;
+    cursor: pointer;
+}
+
+main .post .post-content {
+    left: 20%;
+}
+
+main .post .post-content .title {
+    color: blue;
+    font-size: 20px;
+    cursor: pointer;
+    max-width: 800px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+main .post .post-content .time {
+    color: #aaaaaa;
+    font-size: 12px;
+}
+
+main .post .post-content .operation {
+    font-weight: bold;
+    color: #999999;
+    font-size: 12px;
+}
+
+main .post .post-content .operation > span {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+main .voteReminder {
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    position: fixed;
+    left: 50%;
+    top: 50px;
+    margin-left: -60px; 
+    background: linear-gradient(to bottom, #000000, #999999);
+    border-radius: 10px;
+    display: none;
+}
