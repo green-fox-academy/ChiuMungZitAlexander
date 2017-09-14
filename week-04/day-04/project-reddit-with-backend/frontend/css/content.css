@@ -30,6 +30,46 @@ header .banner-right {
     float: right;
 }
 
+header .banner-right .sign-in {
+    width: 200px;
+    height: 95px;
+    padding: 5px 10px;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    border-radius: 5px;
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+header .banner-right .sign-in::after {
+    content: '';
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    top: -20px;
+    right: 20px;
+    border-top: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid lightblue;
+}
+
+.sign-in .login {
+    height: 65px;
+    width: 30px;
+    position: absolute;
+    right: 10px;
+    top: 25px;
+    color: white;
+    font-size: 24px;
+    line-height: 65px;
+    text-align: center;
+    background-color: royalblue;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 header .new-post {
     cursor: pointer;
 }

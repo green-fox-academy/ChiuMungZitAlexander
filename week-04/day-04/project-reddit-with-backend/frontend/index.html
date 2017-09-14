@@ -14,7 +14,12 @@
             <span class="new-post" onclick="showPostWindow(0)">CREATE NEW POST</span>
         </div>
         <div class="banner-right">
-            <span>SIGN IN</span>
+            <span class="no-post">SIGN IN</span>
+            <div class="sign-in">
+                <span>Account:</span><input type="text" id="loginAccount">
+                <span>Password:</span><input type="password" id="loginPassword">
+                <div class="login" onclick="login()">√</div>
+            </div>
         </div>
     </header>
     <main>

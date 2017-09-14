@@ -6,7 +6,7 @@ const VOTE_REMINDER = document.querySelector(".voteReminder");
 const MAX_LIST_LEGNTH = 20;
 var postContent = [];
 
-window.onload = function () {
+/* window.onload = function () {
     httpGetRequest();
     document.querySelector(".post-shelter .post-window").addEventListener("click", function (e) {
         e.stopPropagation();
@@ -232,4 +232,14 @@ function modifyPost(requestObj, postid) {
     }).then(function (response) {
         httpGetRequest();
     })
+} */
+
+function login() {
+    var loginAccount = document.getElementById('loginAccount').value;
+    var loginPassword = document.getElementById('loginPassword').value;
+    if (!loginAccount || !loginPassword) {
+        alert();
+    } else {
+        httpLoginRequest
+    }
 }

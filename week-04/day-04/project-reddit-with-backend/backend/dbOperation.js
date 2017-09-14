@@ -73,9 +73,14 @@ function modifyPost(db, condition, callback) {
     });
 }
 
+function queryUser (db, query, callback) {
+    
+}
+
 module.exports = {
     queryPost: queryPost,
     insertPost: insertPost,
     deletePost: deletePost,
-    modifyPost: modifyPost
+    modifyPost: modifyPost,
+    queryUser: queryUser
 }
