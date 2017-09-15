@@ -289,17 +289,34 @@ function login() {
     }
 }
 
-function logout() {
+function logout () {
     location.reload();
 }
 
-function fadeOutAnimation(dom) {
+function showLogin () {
+    fadeInAnimation(document.querySelector('.sign-in'));
+}
+
+function fadeOutAnimation (dom) {
     let opacity = 1;
-    let animation = setInterval(function() {
+    let animationFadeOut = setInterval(function() {
         dom.style.opacity = opacity;
         opacity -= 0.1;
-        if (!opacity) {
-            clearInterval(postWindowAnimation);
+        if (opacity <= 0) {
+            clearInterval(animation);
+        }
+    }, 25);
+    dom.style.display = 'none';
+}
+
+function fadeInAnimation (dom) {
+    dom.style.display = 'inherit';
+    let opacity = 0;
+    let animationFadeIn = setInterval(function() {
+        dom.style.opacity = opacity;
+        opacity += 0.1;
+        if (opacity >= 1) {
+            clearInterval(animation);
         }
     }, 25);
 }

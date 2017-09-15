@@ -35,6 +35,8 @@ header .banner-right .sign-in {
     height: 100px;
     padding: 5px 10px;
     position: absolute;
+    display: none;
+    opacity: 0;
     top: 30px;
     right: 10px;
     border-radius: 5px;
