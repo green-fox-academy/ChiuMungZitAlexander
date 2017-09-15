@@ -32,14 +32,13 @@ header .banner-right {
 
 header .banner-right .sign-in {
     width: 200px;
-    height: 95px;
+    height: 100px;
     padding: 5px 10px;
     position: absolute;
     top: 30px;
     right: 10px;
     border-radius: 5px;
     background-color: lightblue;
-    cursor: pointer;
 }
 
 header .banner-right .sign-in::after {
@@ -55,6 +54,10 @@ header .banner-right .sign-in::after {
     border-bottom: 10px solid lightblue;
 }
 
+header .welcome {
+    display: none;
+}
+
 .sign-in .login {
     height: 65px;
     width: 30px;
@@ -68,6 +71,11 @@ header .banner-right .sign-in::after {
     background-color: royalblue;
     border-radius: 5px;
     cursor: pointer;
+}
+
+#loginWarning {
+    color: red;
+    display: none;
 }
 
 header .new-post {
@@ -177,7 +185,7 @@ main .post .post-content .operation > span {
 }
 
 main .voteReminder {
-    width: 120px;
+    width: 140px;
     height: 40px;
     line-height: 40px;
     text-align: center;

@@ -73,8 +73,85 @@ function modifyPost(db, condition, callback) {
     });
 }
 
+function upVote (db, condition, callback) {
+    var collection = db.collection('posts');
+    let query = {
+        '_id': new ObjectID(condition.id )
+    }
+    let modification = {
+        $inc: {
+            'score': condition.vote,
+        },
+        $set: {
+            'vote': condition.vote
+        }
+    }
+    collection.updateOne(query, modification, function (err, result) {
+        if (err) {
+            throw err;
+        } else {
+            collection.find(query).toArray(function (err, queryResult) {
+                if (err) {
+                    throw err;
+                }
+                db.close();
+                callback(queryResult);
+            });
+        }
+    });
+}
+
+function downVote (db, condition, callback) {
+    var collection = db.collection('posts');
+    let query = {
+        '_id': new ObjectID(condition.id )
+    }
+    let modification = {
+        $inc: {
+            'score': condition.vote,
+        },
+        $set: {
+            'vote': condition.vote
+        }
+    }
+    collection.updateOne(query, modification, function (err, result) {
+        if (err) {
+            throw err;
+        } else {
+            collection.find(query).toArray(function (err, queryResult) {
+                if (err) {
+                    throw err;
+                }
+                db.close();
+                callback(queryResult);
+            });
+        }
+    });
+}
+
 function queryUser (db, query, callback) {
-    
+    var collection = db.collection('users');
+    let userName = {
+        'name': query.account
+    }
+    collection.find(userName).toArray(function (err, result) {
+        if (err) {
+            throw err;
+        } else {
+            db.close();
+            let resBody = {};
+            if (result[0].password == query.password) {
+                resBody =  {
+                    'loginCondition': true
+                }
+            } else {
+                resBody = {
+                    'loginCondition': false
+                }
+            }
+            callback(resBody);
+        }
+    });
 }
 
 module.exports = {
@@ -82,5 +159,7 @@ module.exports = {
     insertPost: insertPost,
     deletePost: deletePost,
     modifyPost: modifyPost,
+    upVote: upVote,
+    downVote: downVote,
     queryUser: queryUser
 }

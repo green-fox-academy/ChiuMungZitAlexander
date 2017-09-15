@@ -67,6 +67,45 @@ app.put('/posts/:id', function (req, res) {
     }
 })
 
+app.post('/users', function (req, res) {
+    if (!req.body) {
+        throw 'Error, no request body';
+    } else {
+        let accountAndPassword = req.body;
+        connectMongo(dbOperation.queryUser, accountAndPassword, function (responseBody) {
+            res.send(responseBody);
+        });
+    }
+})
+
+app.put('/posts/:id/upvote', function (req, res) {
+    if (!req.params.id) {
+        throw 'Error, no id';
+    } else {
+        let upVoteCondition = {
+            id: req.params.id,
+            vote: 1
+        }
+        connectMongo(dbOperation.upVote, upVoteCondition, function (responseBody) {
+            res.send(responseBody);
+        });
+    }
+});
+
+app.put('/posts/:id/downvote', function (req, res) {
+    if (!req.params.id) {
+        throw 'Error, no id';
+    } else {
+        let downVoteCondition = {
+            id: req.params.id,
+            vote: -1
+        }
+        connectMongo(dbOperation.downVote, downVoteCondition, function (responseBody) {
+            res.send(responseBody);
+        });
+    }
+});
+
 app.listen(process.env.port || 3000, function () {
     console.log('now listening for requests');
 });
