@@ -1,0 +1,197 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
+}
+
+body {
+    background-image: linear-gradient(to right, #bbb 0%, #ddd 30%, #ddd 70%, #bbb 100%);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+}
+
+
+/* GALLERY PART */
+
+main .gallery {
+    display: block;
+    margin: 100px auto 0;
+    background-image: linear-gradient(to bottom, #fff 0%, #ddd 80%);
+    width: 800px;
+    height: 393px;
+    box-shadow: 0 10px 40px -10px #434343;
+}
+
+main .leftArrow,
+main .rightArrow {
+    height: 100%;
+    width: 50px;
+    float: left;
+    position: relative;
+}
+
+main .svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+main .svg:hover {
+    filter: opacity(0.3);
+}
+
+main .svg:active {
+    transform: scale(1.3, 1.3);
+}
+
+main .rightArrow {
+    transform: rotate(180deg);
+}
+
+main .pic {
+    width: calc(100% - 100px);
+    height: 100%;
+    background: white;
+    float: left;
+    overflow: hidden;
+    position: relative;
+}
+
+main .pic img {
+    width: 100%;
+}
+
+main .pic .description {
+    position: absolute;
+    bottom: 0;
+    height: 110px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+main .pic .description h2 {
+    margin: 10px 0;
+    color: white;
+}
+
+main .pic .description p {
+    color: white;
+    font-size: 14px;
+    height: 50px;
+    text-overflow: ellipsis;
+}
+
+
+
+main .nav {
+    height: 100px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+main .nav .thumbnails {
+    height: 100px;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+    text-align: center;
+    min-width: 320px;
+}
+
+main .nav .thumbnails .active,
+main .nav .thumbnails nav:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 10px -10px black;
+}
+
+main .nav .thumbnails .active::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid white;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+
+main .nav .thumbnails .thumbDetail {
+    display: inline-block;
+    width: 60px;
+}
+
+main .nav .thumbnails nav {
+    height: 50px;
+    width: 50px;
+    padding: 4px;
+    background-image: linear-gradient(to bottom, #fff, #ccc);
+    border-radius: 4px;
+    display: inline-block;
+    box-shadow: 0 5px 10px -5px black;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+main .nav .thumbnails nav div {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+}
+
+main .nav .thumbnails nav div img {
+    height: 100%;
+    width: 100%;
+}
+
+main .nav .thumbnails .thumbnames {
+    position: relative;
+    font-size: 12px;
+    top: -120px;
+    color: white;
+}
+
+.popup {
+    width: 200px !important;
+    height: 50px !important;
+    position: absolute;
+    top: -60px;
+    left: -72.5px;
+    z-index: 1000;
+    text-align: center;
+    display: none;
+}
+
+.popup::before {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 92.5px;
+    width: 0;
+    height: 0;
+    border-bottom: 8px solid transparent;
+    border-top: 8px solid #333;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+
+.popup span {
+    position: relative;
+    background: linear-gradient(to bottom, #000, #333);
+    padding: 10px 15px;
+    top: 25px;
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+}
