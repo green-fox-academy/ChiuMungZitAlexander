@@ -1,43 +1,62 @@
 import React from 'react';
 
-import KawhiLeonard from '../images/gallery/KawhiLeonard.jpg'
-import KevinDurant from '../images/gallery/KevinDurant.jpg'
-import KobeBryant from '../images/gallery/KobeBryant.jpg'
-import KyrieIrving from '../images/gallery/KyrieIrving.jpg'
-import StephenCurry from '../images/gallery/StephenCurry.jpg'
+import Popup from './popup.jsx';
+
+import KawhiLeonard from '../images/gallery/KawhiLeonard.jpg';
+import KevinDurant from '../images/gallery/KevinDurant.jpg';
+import KobeBryant from '../images/gallery/KobeBryant.jpg';
+import KyrieIrving from '../images/gallery/KyrieIrving.jpg';
+import StephenCurry from '../images/gallery/StephenCurry.jpg';
+import ThumbKawhiLeonard from '../images/thumbnails/KawhiLeonard.jpg';
+import ThumbKevinDurant from '../images/thumbnails/KevinDurant.jpg';
+import ThumbKobeBryant from '../images/thumbnails/KobeBryant.jpg';
+import ThumbKyrieIrving from '../images/thumbnails/KyrieIrving.jpg';
+import ThumbStephenCurry from '../images/thumbnails/StephenCurry.jpg';
 
 class Gallery extends React.Component {
     constructor(props) {
         super(props);
         this.imgSrc = [
             {
+                id: 1,
                 name: 'KawhiLeonard',
                 url: KawhiLeonard,
+                thumbUrl: ThumbKawhiLeonard,
                 info: 'Kawhi Anthony Leonard (born June 29, 1991) is an American professional basketball player for the San Antonio Spurs of the National Basketball Association (NBA).'
             },
             {
+                id: 2,
                 name: 'KevinDurant',
                 url: KevinDurant,
+                thumbUrl: ThumbKevinDurant,
                 info: 'Kevin Wayne Durant (born September 29, 1988) is an American professional basketball player for the Golden State Warriors of the National Basketball Association (NBA).'
             },
             {
+                id: 3,
                 name: 'KobeBryant',
                 url: KobeBryant,
+                thumbUrl: ThumbKobeBryant,
                 info: 'Kobe Bean Bryant (born August 23, 1978) is an American retired professional basketball player and businessman. He played his entire 20-year career with the Los Angeles Lakers of the National Basketball Association (NBA).'
             },
             {
+                id: 4,
                 name: 'KyrieIrving',
                 url: KyrieIrving,
+                thumbUrl: ThumbKyrieIrving,
                 info: 'Kyrie Andrew Irving (born March 23, 1992) is an American professional basketball player for the Boston Celtics of the National Basketball Association (NBA).'
             },
             {
+                id: 5,
                 name: 'StephenCurry',
                 url: StephenCurry,
+                thumbUrl: ThumbStephenCurry,
                 info: 'Wardell Stephen Curry II (born March 14, 1988) is an American professional basketball player for the Golden State Warriors of the National Basketball Association (NBA). Many players and analysts have called him the greatest shooter in NBA history.'
             }
         ]
+        this.hoverState = [false, false, false, false, false];
         this.state = {
-            imgId: 0
+            imgId: 0,
+            hoverId: ''
         };
     }
 
@@ -54,7 +73,7 @@ class Gallery extends React.Component {
         if (num === -1 && this.state.imgId > 0) {
             this.setState({
                 imgId: this.state.imgId - 1
-            })
+            });
         } else if (num === -1 && this.state.imgId <= 0) {
             this.setState({
                 imgId: this.imgSrc.length - 1
@@ -62,7 +81,20 @@ class Gallery extends React.Component {
         }
     }
 
+    handleMouseEnter(index) {
+        this.setState({
+            hoverId: index
+        })
+    }
+
+    handleMouseLeave() {
+        this.setState({
+            hoverId: ''
+        })
+    }
+
     render() {
+        let that = this;
         return (
             <main>
                 <section className="gallery">
@@ -94,12 +126,20 @@ class Gallery extends React.Component {
                 </section>
                 <section className="nav">
                     <div className="thumbnails">
-                        {/* <!-- <nav class="active">
-                            <div><img src="images/thumbnails/KobeBryant.jpg" alt=""></div>
-                            <div class="popup">
-                                <span>Kobe Bryant</span>
-                            </div>
-                        </nav> --> */}
+                        {
+                            this.imgSrc.map(function (item, index) {
+                                return (
+                                    <nav className={that.state.imgId === item.id - 1 ? 'active' : ''} key={index}
+                                    onMouseEnter={() => that.handleMouseEnter(item.id - 1)}
+                                    onMouseLeave={() => that.handleMouseLeave(item.id - 1)}>
+                                        <div>
+                                            <img src={item.thumbUrl} alt="" />
+                                        </div>
+                                        <Popup name={item.name} index={index} hoverId={that.state.hoverId} />
+                                    </nav>
+                                )
+                            })
+                        }
                     </div>
                 </section>
             </main>
