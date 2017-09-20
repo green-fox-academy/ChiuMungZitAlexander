@@ -53,14 +53,14 @@ class Gallery extends React.Component {
                 info: 'Wardell Stephen Curry II (born March 14, 1988) is an American professional basketball player for the Golden State Warriors of the National Basketball Association (NBA). Many players and analysts have called him the greatest shooter in NBA history.'
             }
         ]
-        this.hoverState = [false, false, false, false, false];
         this.state = {
             imgId: 0,
-            hoverId: ''
+            hoverId: '',
+            searchbarValue: ''
         };
     }
 
-    handleClick(num) {
+    arrowClick(num) {
         if (num === 1 && this.state.imgId < this.imgSrc.length - 1) {
             this.setState({
                 imgId: this.state.imgId + 1
@@ -81,25 +81,38 @@ class Gallery extends React.Component {
         }
     }
 
+    thumbnailClick(id) {
+        this.setState({
+            imgId: id
+        });
+    }
+
     handleMouseEnter(index) {
         this.setState({
             hoverId: index
-        })
+        });
     }
 
     handleMouseLeave() {
         this.setState({
             hoverId: ''
-        })
+        });
+    }
+
+    searchbarChange(event) {
+        this.setState({
+            searchbarValue: event.target.value
+        });
     }
 
     render() {
         let that = this;
+        var search = that.state.searchbarValue;
         return (
             <main>
                 <section className="gallery">
                     <section className="leftArrow">
-                        <div className="svg" onClick={() => this.handleClick(-1)}>
+                        <div className="svg" onClick={() => this.arrowClick(-1)}>
                             <svg width="14.906" height="22.75" viewBox="0 0 14.906 22.75">
                                 <defs>
                                 </defs>
@@ -116,7 +129,7 @@ class Gallery extends React.Component {
                         </div>
                     </section>
                     <section className="rightArrow">
-                        <div className="svg" onClick={() => this.handleClick(1)}>
+                        <div className="svg" onClick={() => this.arrowClick(1)}>
                             <svg width="14.906" height="22.75" viewBox="0 0 14.906 22.75">
                                 <path id="Shape_3_copy" data-name="Shape 3 copy" className="cls-1" d="M129.01,311.107a2.45,2.45,0,0,1-3.536,0L114.868,300.5l10.606-10.607a2.5,2.5,0,1,1,3.536,3.536l-7.071,7.071,7.071,7.071A2.449,2.449,0,0,1,129.01,311.107Z"
                                     transform="translate(-114.875 -289.125)" />
@@ -131,7 +144,8 @@ class Gallery extends React.Component {
                                 return (
                                     <nav className={that.state.imgId === item.id - 1 ? 'active' : ''} key={index}
                                     onMouseEnter={() => that.handleMouseEnter(item.id - 1)}
-                                    onMouseLeave={() => that.handleMouseLeave(item.id - 1)}>
+                                    onMouseLeave={() => that.handleMouseLeave(item.id - 1)}
+                                    onClick={() => that.thumbnailClick(item.id - 1)}>
                                         <div>
                                             <img src={item.thumbUrl} alt="" />
                                         </div>
@@ -141,6 +155,10 @@ class Gallery extends React.Component {
                             })
                         }
                     </div>
+                </section>
+                <section className="searchbar">
+                    <input type="text" placeholder="search player name..."
+                    onChange={() => that.searchbarChange(event)} value={search} />
                 </section>
             </main>
         )

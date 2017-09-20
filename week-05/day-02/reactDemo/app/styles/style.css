@@ -198,3 +198,18 @@ main .nav .thumbnails .thumbnames {
 .display-block {
     display: block !important;
 }
+
+.searchbar {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.searchbar > input {
+    width: 200px;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.searchbar > input:focus {
+    outline: none;
+}
