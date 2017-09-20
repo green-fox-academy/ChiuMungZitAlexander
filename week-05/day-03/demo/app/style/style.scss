@@ -103,7 +103,7 @@ img {
 
 .main-button {
     @extend .push-button;
-    font-weight: bold;
+    ft-wt: bold;
 } */
 
 
@@ -138,23 +138,57 @@ $teal: rgb(55, 203, 194);
 $gold: rgb(255, 187, 51);
 $tomato: rgb(255, 99, 71);
 $p100: 100%;
-@mixin font-weight($weight) {
+@mixin ft-wt($weight) {
     font-weight: $weight;
+}
+
+@mixin ft-sz($size) {
+    font-size: $size;
 }
 
 @mixin bg-color($color) {
     background-color: $color;
 }
 
-@mixin brightness($index) {
-    -webkit-filter: brightness($index);
-    filter: brightness($index);
+@mixin mixColor($baseColor) {
+    .mixed {
+        height: 40px;
+        margin: 40px 0;
+        position: relative;
+        >p {
+            position: absolute;
+            top: -35px;
+            @include ft-sz(14px);
+        }
+        &:first-child {
+            @include bg-color(mix($baseColor, $mint, 35%));
+        }
+        &:nth-child(2) {
+            @include bg-color(mix($baseColor, $teal, 35%));
+        }
+        &:nth-child(3) {
+            @include bg-color(mix($baseColor, $gold, 35%));
+        }
+        &:nth-child(4) {
+            @include bg-color(mix($baseColor, $tomato, 35%));
+        }
+    }
 }
 
-
-/* @function mixColor ($currentColor, $mixedColor) {
-    @return 
-} */
+@mixin lightenColor($baseColor) {
+    float: left;
+    height: 120px;
+    width: $p100 / 3;
+    &:first-child {
+        @include bg-color(lighten($baseColor, 20%));
+    }
+    &:nth-child(2) {
+        @include bg-color($baseColor);
+    }
+    &:last-child {
+        @include bg-color(darken($baseColor, 20%));
+    }
+}
 
 main {
     width: 1024px;
@@ -163,30 +197,53 @@ main {
         border: 0px;
         border-top: 2px solid #eeeeee;
     }
-    p {
-        @include font-weight(bold);
+    >p {
+        @include ft-wt(bold);
+        @include ft-sz(24px);
+        margin: 0;
     }
     section {
-        p {
-            @include font-weight(bold);
+        >p {
+            @include ft-wt(bold);
         }
         .sub-title {
-            @include font-weight(normal);
+            @include ft-wt(normal);
         }
         .color-block {
             display: flex;
             justify-content: space-between;
             .color-item {
                 width: 24%;
-                height: 180px;
+                margin-bottom: 20px;
                 .color {
                     height: 120px;
                 }
-                p {
-                    @include font-weight(normal);
+                >p {
+                    @include ft-wt(normal);
                 }
-                .mixed {
-                    height: 40px;
+                .triple-color-mint-base {
+                    @include lightenColor($mint);
+                }
+                .triple-color-teal-base {
+                    @include lightenColor($teal);
+                }
+                .triple-color-gold-base {
+                    @include lightenColor($gold);
+                }
+                .triple-color-tomato-base {
+                    @include lightenColor($tomato);
+                }
+                .mint-base {
+                    @include mixColor($mint);
+                }
+                .teal-base {
+                    @include mixColor($teal);
+                }
+                .gold-base {
+                    @include mixColor($gold);
+                }
+                .tomato-base {
+                    @include mixColor($tomato);
                 }
                 .description {
                     height: 60px;
@@ -194,19 +251,8 @@ main {
                         margin: 5px 0;
                         height: 16px;
                         line-height: 16px;
-                        font-size: 12px;
-                        @include font-weight(normal);
-                    }
-                }
-                .triple-color {
-                    float: left;
-                    height: 120px;
-                    width: $p100 / 3;
-                    &:first-child {
-                        @include brightness(1.2);
-                    }
-                    &:last-child {
-                        @include brightness(0.8);
+                        @include ft-wt(normal);
+                        @include ft-sz(12px);
                     }
                 }
             }
@@ -232,7 +278,7 @@ main {
 
 .attribute {
     float: left;
-    @include font-weight(bold);
+    @include ft-wt(bold);
 }
 
 .value {
