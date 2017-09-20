@@ -1,11 +1,7 @@
-$pink: pink;
+/* exercise1 */
 
-body,
-html {
-    background-color: $pink;
-}
 
-nav {
+/* nav {
     ul {
         margin: 0;
         padding: 0;
@@ -19,4 +15,59 @@ nav {
         padding: 6px 12px;
         text-decoration: none;
     }
+} */
+
+
+/* exercise2 */
+
+
+/* @import 'reset';
+body {
+    font: 100% Helvetica, sans-serif;
+    background-color: #efefef;
+} */
+
+
+/* exercise3 */
+
+
+/* @mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
 }
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: #eeeeee;
+    @include border-radius(10px);
+} */
+
+
+/* exercise3 */
+
+
+/* @mixin border-width($thickness) {
+    border-width: $thickness;
+}
+
+img {
+    @include border-width(10px);
+} */
+
+
+/* exercise4 */
+
+/* @mixin border-width($thickness) {
+    border-width: $thickness;
+}
+
+img {
+    border-style: solid;
+    @include border-width(10px);
+} */
+
+/* exercise6 */
+
