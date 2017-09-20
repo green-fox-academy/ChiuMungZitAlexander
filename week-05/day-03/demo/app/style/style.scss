@@ -49,6 +49,12 @@ body {
 /* exercise3 */
 
 
+/* @import 'partial';
+body {
+    background-color: $color;
+} */
+
+
 /* @mixin border-width($thickness) {
     border-width: $thickness;
 }
@@ -60,6 +66,7 @@ img {
 
 /* exercise4 */
 
+
 /* @mixin border-width($thickness) {
     border-width: $thickness;
 }
@@ -69,5 +76,165 @@ img {
     @include border-width(10px);
 } */
 
+
+/* exercise5 */
+
+
+/* @mixin border-width($thickness) {
+    border-width: $thickness;
+}
+
+img {
+    @include border-width(10px);
+    @extend .solid;
+}
+
+.solid {
+    border-style: solid;
+} */
+
+
 /* exercise6 */
 
+
+/* .push-button {
+    background-color: blue;
+}
+
+.main-button {
+    @extend .push-button;
+    font-weight: bold;
+} */
+
+
+/* exercise7 */
+
+
+/* $page-width: 1400px;
+$padding: 20px;
+
+.container {
+    background-color: black;
+    padding: $padding;
+    width: 0.8 * $page-width - 2 * $padding;
+} */
+
+
+/* exercise8 */
+
+
+/* .red-when-focus {
+    color: black;
+    &:focus {
+        color: red;
+    }
+} */
+
+
+/* exercise9 */
+
+$mint: rgb(217, 245, 232);
+$teal: rgb(55, 203, 194);
+$gold: rgb(255, 187, 51);
+$tomato: rgb(255, 99, 71);
+$p100: 100%;
+@mixin font-weight($weight) {
+    font-weight: $weight;
+}
+
+@mixin bg-color($color) {
+    background-color: $color;
+}
+
+@mixin brightness($index) {
+    -webkit-filter: brightness($index);
+    filter: brightness($index);
+}
+
+
+/* @function mixColor ($currentColor, $mixedColor) {
+    @return 
+} */
+
+main {
+    width: 1024px;
+    margin: 0 auto;
+    hr {
+        border: 0px;
+        border-top: 2px solid #eeeeee;
+    }
+    p {
+        @include font-weight(bold);
+    }
+    section {
+        p {
+            @include font-weight(bold);
+        }
+        .sub-title {
+            @include font-weight(normal);
+        }
+        .color-block {
+            display: flex;
+            justify-content: space-between;
+            .color-item {
+                width: 24%;
+                height: 180px;
+                .color {
+                    height: 120px;
+                }
+                p {
+                    @include font-weight(normal);
+                }
+                .mixed {
+                    height: 40px;
+                }
+                .description {
+                    height: 60px;
+                    p {
+                        margin: 5px 0;
+                        height: 16px;
+                        line-height: 16px;
+                        font-size: 12px;
+                        @include font-weight(normal);
+                    }
+                }
+                .triple-color {
+                    float: left;
+                    height: 120px;
+                    width: $p100 / 3;
+                    &:first-child {
+                        @include brightness(1.2);
+                    }
+                    &:last-child {
+                        @include brightness(0.8);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mint {
+    @include bg-color($mint);
+}
+
+.teal {
+    @include bg-color($teal);
+}
+
+.gold {
+    @include bg-color($gold);
+}
+
+.tomato {
+    @include bg-color($tomato);
+}
+
+.attribute {
+    float: left;
+    @include font-weight(bold);
+}
+
+.value {
+    float: right;
+}
