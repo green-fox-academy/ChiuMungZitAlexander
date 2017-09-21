@@ -1,0 +1,59 @@
+@mixin v-center {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    width: 1080px;
+    margin: 0 auto;
+    header {
+        height: 50px;
+        @include v-center;
+        padding: 0 30px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        background-color: darkblue;
+        nav {
+            height: 30px;
+            margin: 0 5px;
+            padding: 0 5px;
+            @include v-center;
+            background-color: yellow;
+        }
+    }
+    main {
+        width: 1020px;
+        padding: 0 30px;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        background: green;
+        .searchBox {
+            margin: 0 0 20px;
+            padding: 5px 0;
+            @include v-center;
+            justify-content: space-around;
+            font-size: 48px;
+
+            label {
+                height: 60px;
+            }
+            input {
+                width: 540px;
+                height: 60px;
+                font-size: 42px;
+                background-color: transparent;
+                border: 0;
+                border-bottom: 1px solid black;
+            }
+            button {
+                width: 80px;
+                height: 60px;
+                font-size: 42px;
+                background-color: transparent;
+                border: 2px solid #666666;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}
