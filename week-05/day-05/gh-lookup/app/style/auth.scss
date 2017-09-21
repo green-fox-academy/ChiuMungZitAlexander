@@ -1,0 +1,21 @@
+@mixin dis-b {
+    display: block;
+}
+
+.auth {
+    width: 200px;
+    p {
+        border-bottom: 1px solid black;
+    }
+    input {
+        @include dis-b;
+        width: 100%;
+    }
+    button {
+        height: 20px;
+        width: 100%;
+        border: 0;
+        @include dis-b;
+        background-color: darkblue;
+    }
+}
