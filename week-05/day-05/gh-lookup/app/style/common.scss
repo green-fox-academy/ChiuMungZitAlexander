@@ -34,3 +34,11 @@ nav {
 button {
     cursor: pointer;
 }
+
+.show {
+    display: flex !important;
+}
+
+.hidden {
+    display: none !important;
+}

@@ -4,19 +4,26 @@
 
 .auth {
     width: 200px;
-    p {
-        border-bottom: 1px solid black;
-    }
-    input {
-        @include dis-b;
-        width: 100%;
-    }
-    button {
-        height: 20px;
-        width: 100%;
-        margin-top: 5px;
-        border: 0;
-        @include dis-b;
-        background-color: darkblue;
+    div {
+        text-align: right;
+        p {
+            &:first-child {
+                font-weight: bold;
+                font-size: 24px;
+            }
+            border-bottom: 1px solid black;
+        }
+        input {
+            @include dis-b;
+            width: 100%;
+        }
+        button {
+            height: 20px;
+            width: 100%;
+            margin-top: 5px;
+            border: 0;
+            @include dis-b;
+            background-color: darkblue;
+        }
     }
 }
