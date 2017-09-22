@@ -38,4 +38,16 @@ mongoDB
 ### DAY-04/Sep.14th
 codewars and Project Reddit with backend
 ### DAY-05/Sep.15th
+Project Reddit with backend
 
+## WEEK-05
+### DAY-01/Sep.18th
+JSA test
+### DAY-02/Sep.19th
+React
+### DAY-03/Sep.20th
+webpack and SASS
+### DAY-04/Sep.21st
+class and Promise
+### DAY-05/Sep.22nd
+gh-lookup project

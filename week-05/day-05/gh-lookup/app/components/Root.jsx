@@ -191,7 +191,7 @@ class Root extends React.Component {
                     response.json().
                         then((data) => {
                             this.setState({
-                                commits: data.slice(0, 20),
+                                commits: data,
                                 loading: false
                             });
                         });
