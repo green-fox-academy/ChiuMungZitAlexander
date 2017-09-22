@@ -85,6 +85,13 @@
                         text-decoration: underline;
                         font-size: 24px;
                         font-weight: bold;
+                        cursor: auto;
+                    }
+                    &:not(:first-child) {
+                        cursor: pointer;
+                    }
+                    &:not(:first-child):hover {
+                        color: red;
                     }
                 }
             }

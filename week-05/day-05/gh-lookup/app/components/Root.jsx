@@ -1,6 +1,7 @@
 import React from 'react';
+import Commits from './Commits.jsx';
 
-import server from '../../server/server.js'
+import server from '../../server/server.js';
 import root from '../style/root.scss';
 
 import loading from '../img/loading.png'
@@ -21,7 +22,7 @@ class Root extends React.Component {
             token: null,
             login: false,
             loading: false,
-            commits: {},
+            commits: [],
             recommendedList: []
         }
     }
@@ -30,7 +31,7 @@ class Root extends React.Component {
             this.setState({
                 loading: true
             });
-            fetch(server.repoInfo + 'shenzhen-frontend-syllabus', {
+            fetch(server.defaultRepo, {
                 method: 'GET',
                 headers: {
                     'accept': 'application/json',
@@ -174,6 +175,31 @@ class Root extends React.Component {
             console.log('No authentication or limit up! Login first!');
         }
     }
+    handleRecommendedClick(name) {
+        if (!!userStorage.username && !!userStorage.token) {
+            this.setState({
+                loading: true
+            });
+            fetch(server.listCommits + name + '/commits', {
+                method: 'GET',
+                headers: {
+                    'accept': 'application/json',
+                    'Authorization': 'Basic ' + userStorage.token
+                }
+            }).
+                then((response) => {
+                    response.json().
+                        then((data) => {
+                            this.setState({
+                                commits: data.slice(0, 20),
+                                loading: false
+                            });
+                        });
+                });
+        } else {
+            console.log('No authentication or limit up! Login first!');
+        }
+    }
     render() {
         let that = this;
         const login = that.state.login;
@@ -229,25 +255,14 @@ class Root extends React.Component {
                         </section>
                     </div>
                     <div className="row">
-                        <section className="commits">
-                            <div>
-                                <nav>Commits<span> (2750)</span></nav>
-                            </div>
-                            <div className="single-commit">
-                                <p className="repo-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <p className="last-modified">
-                                    <span>Alexander</span>
-                                    <span> at </span>
-                                    <span>2017-09-22T02:38:50Z</span>
-                                </p>
-                            </div>
-                        </section>
+                        <Commits commits={that.state.commits}/>
                         <section className="recommended">
                             <p>Recommended</p>
                             {
                                 this.state.recommendedList.map((item) => {
                                     return (
-                                        <p key={item.name}>{item.name}</p>
+                                        <p key={item.name}
+                                            onClick={() => { that.handleRecommendedClick(item.name) }}>{item.name}</p>
                                     );
                                 })
                             }
