@@ -55,28 +55,34 @@ gh-lookup project
 ## FINAL-WEEK
 ### FINAL-TEST/Oct.31st
 //	Event handling frontend side
+
 https://github.com/greenfox-academy/epam-jsa-black-pearl/blob/develop/src/client/components/columnMenu/index.js
 
 
 //	Initiating an AJAX request
+
 https://github.com/greenfox-academy/epam-jsa-black-pearl/blob/develop/src/client/controller/httpRequest.js
 https://github.com/greenfox-academy/epam-jsa-black-pearl/blob/develop/src/client/components/boardScreen/index.js
 
 
 //	Using callbacks
+
 https://github.com/greenfox-academy/epam-jsa-black-pearl/blob/develop/src/server/api/login/auth.js
 https://github.com/greenfox-academy/epam-jsa-black-pearl/blob/develop/src/server/index.js
 
 
 //	Creating an Express endpoint in Node.js
+
 https://github.com/greenfox-academy/epam-jsa-black-pearl/blob/develop/src/server/index.js
 
 
 //	Creating a database call in Node.js
+
 https://github.com/greenfox-academy/epam-jsa-black-pearl/blob/develop/src/server/api/login/auth.js
 
 
 
 //	Unit test using a testing library
+
 https://github.com/greenfox-academy/epam-jsa-black-pearl/blob/develop/test/login.test.js
 
